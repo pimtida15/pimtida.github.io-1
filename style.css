@@ -3,7 +3,7 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #e8f5e9; /* เปลี่ยนเป็นสีเขียวอ่อนแล้ว */
     color: #333;
 }
 
@@ -29,9 +29,11 @@ section {
     background: white;
     border-radius: 8px;
 }
+
 h2 {
-  color: #4CAF50;
+    color: #4CAF50;
 }
+
 .project {
     margin-bottom: 20px;
 }
@@ -40,10 +42,12 @@ h2 {
     margin: 0 0 10px;
     color: #333;
 }
+
 ul {
     list-style-type: square; 
     padding-left: 20px;
 }
+
 footer {
     text-align: center;
     padding: 10px 0;
