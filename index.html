@@ -6,23 +6,210 @@
     <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ Pimtida">
     <title>ความภาคภูมิใจของ PIMTIDA</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Chakra Petch', 'Prompt', sans-serif;
+        }
+
+        :root {
+            --pitch-dark: #0b140d;      /* สีดำเขียวเข้มแบบสเตเดียมตอนกลางคืน */
+            --pitch-green: #142b1a;     /* สีหญ้าสนามเข้ม */
+            --turf-bright: #1fd655;     /* สีเขียวนีออน เส้นสนาม/ไฟสนาม */
+            --stadium-gold: #ffcc00;    /* สีทองถ้วยรางวัล */
+            --jersey-white: #ffffff;    /* สีขาวเสื้อแข่ง */
+            --text-gray: #d1ded4;       /* สีตัวอักษรทั่วไป */
+        }
+
+        body {
+            background-color: var(--pitch-dark);
+            color: var(--jersey-white);
+            line-height: 1.6;
+            background-image: 
+                linear-gradient(rgba(11, 20, 13, 0.85), rgba(20, 43, 26, 0.95)),
+                radial-gradient(circle at 50% 20%, #1a4326 0%, transparent 60%);
+            padding-bottom: 40px;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #112516 0%, #080f0a 100%);
+            border-bottom: 4px solid var(--turf-bright);
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to right, transparent 49%, rgba(31, 214, 85, 0.06) 50%, transparent 51%);
+            background-size: 40px 100%;
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--jersey-white);
+            text-shadow: 0 0 15px var(--turf-bright);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: var(--stadium-gold);
+            font-weight: 600;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            background: rgba(20, 43, 26, 0.55);
+            border-radius: 16px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-left: 6px solid var(--turf-bright);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: var(--stadium-gold);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px dashed rgba(31, 214, 85, 0.3);
+            padding-bottom: 8px;
+        }
+
+        h2::before {
+            content: '⚽';
+            margin-right: 12px;
+            font-size: 1.4rem;
+            filter: drop-shadow(0 0 5px var(--turf-bright));
+        }
+
+        p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+
+        .project {
+            background: rgba(11, 20, 13, 0.8);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(31, 214, 85, 0.2);
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-4px);
+            border-color: var(--turf-bright);
+            box-shadow: 0 6px 20px rgba(31, 214, 85, 0.2);
+        }
+
+        .project h3 {
+            color: var(--turf-bright);
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        li {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 12px 18px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-weight: 500;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+        }
+
+        /* เอฟเฟกต์เฉพาะกล่องทักษะ */
+        #skills li:hover {
+            background: var(--turf-bright);
+            color: var(--pitch-dark);
+            font-weight: 700;
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(31, 214, 85, 0.4);
+            cursor: pointer;
+        }
+
+        img {
+            border-radius: 8px;
+            border: 2px solid rgba(31, 214, 85, 0.4);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+            margin: 10px 0;
+            display: block;
+            transition: all 0.3s;
+        }
+
+        img:hover {
+            border-color: var(--stadium-gold);
+            transform: scale(1.02);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px 20px;
+            background: #060b07;
+            border-top: 2px solid rgba(31, 214, 85, 0.2);
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            color: #88998e;
+            margin-bottom: 8px;
+        }
+
+        footer a {
+            color: var(--turf-bright);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px dashed var(--turf-bright);
+            transition: all 0.2s;
+        }
+
+        footer a:hover {
+            color: var(--stadium-gold);
+            border-bottom-color: var(--stadium-gold);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2rem; }
+            section { margin: 25px 15px; padding: 20px; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ส่วนหัวของเว็บ -->
-    <header>
+        <header>
         <h1>สวัสดี! ฉันคือ PIMTIDA</h1>
         <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
     </header>
 
-    <!-- ส่วนเกี่ยวกับตัวเอง -->
-    <section id="about">
+        <section id="about">
         <h2>เกี่ยวกับฉัน</h2>
         <p>ฉันเป็นคนที่มีความหลงใหลในการทำกิจกรรมที่หลากหลาย ทั้งด้านกีฬา ศิลปะ และดนตรี ฉันภูมิใจในผลงานและทักษะที่ได้พัฒนามาอย่างต่อเนื่อง</p>
     </section>
 
-    <!-- ส่วนแสดงผลงาน -->
-    <section id="projects">
+        <section id="projects">
         <h2>ผลงานของฉัน</h2>
 
         <div class="project">
@@ -31,8 +218,7 @@
         </div>
     </section>
 
-    <!-- ส่วนแสดงทักษะ -->
-    <section id="skills">
+        <section id="skills">
         <h2>ทักษะของฉัน</h2>
         <ul>
             <li>เล่นบอล</li>
@@ -52,17 +238,14 @@
         <li>งานที่4</li>
     </ul>
 </section>
-    <!-- ส่วนติดต่อและลิขสิทธิ์ -->
-    <footer>
+        <footer>
         <p>ติดต่อฉันได้ที่:
             <a href="mailto:s37228@banbung.ac.th">s37228@banbung.ac.th</a>
         </p>
         <p>&copy; <span id="year"></span> PIMTIDA. All rights reserved.</p>
     </footer>
 
-    <!-- ลิงก์ไปยัง JavaScript -->
-    <script src="script.js"></script>
+        <script src="script.js"></script>
 
 </body>
 </html>
- 
